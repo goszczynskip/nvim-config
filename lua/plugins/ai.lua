@@ -315,7 +315,30 @@ return {
         tools = {
           opencode = {
             cmd = { "opencode", "--port", "4000", "--hostname", "0.0.0.0" },
-            env = { OPENCODE_THEME = "system" },
+            env = {
+              OPENCODE_THEME = "system",
+              OPENCODE_EXPERIMENTAL_WORKSPACES = "true"
+            },
+          },
+        },
+        win = {
+          keys = {
+            escape_twice = {
+              "<Esc><Esc>",
+              function(term)
+                vim.api.nvim_chan_send(term.job, "\027\027")
+              end,
+              mode = "t",
+              desc = "send double escape to the terminal",
+            },
+            escape = {
+              "<Esc>",
+              function(term)
+                vim.api.nvim_chan_send(term.job, "\027")
+              end,
+              mode = "t",
+              desc = "send escape to the terminal",
+            },
           },
         },
       },

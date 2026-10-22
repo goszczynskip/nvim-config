@@ -5,6 +5,11 @@ vim.keymap.set("i", "kj", "<esc>", { desc = "Exit insert mode" })
 vim.keymap.set("t", "<esc><esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 vim.keymap.set("n", "<leader>yp", ':let @ expand("%")', { desc = "Yank current buffer file path" })
 
+vim.keymap.set("n", "<leader>cp", function()
+  vim.fn.setreg("+", vim.fn.expand("%"))
+  vim.notify("Copied file path")
+end, { desc = "Copy file path" })
+
 -- -- Add keymaps for CodeCompanion
 -- vim.keymap.set("n", "<leader>aa", "<cmd>CodeCompanionToggle<cr>", {
 --   desc = "Chat with AI",

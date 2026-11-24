@@ -29,3 +29,7 @@ The projects picker scans `~/workspace` by default. To use other directories, cr
 ```lua
 return { "~/code", "~/work" }
 ```
+
+## License
+
+Licensed under [GPL-3.0](LICENSE). Files that come from the [LazyVim starter](https://github.com/LazyVim/starter) remain available under its Apache-2.0 license.

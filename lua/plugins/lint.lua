@@ -4,7 +4,7 @@ return {
     opts = {
       linters = {
         ["markdownlint-cli2"] = {
-          args = { "--config", vim.fn.stdpath("config") .. "/lua/plugins/.markdownlint-cli2.yaml" },
+          prepend_args = { "--config", vim.fn.stdpath("config") .. "/lua/plugins/.markdownlint-cli2.yaml" },
         },
       },
     },

@@ -1,5 +1,3 @@
-local sql_ft = { "sql", "mysql", "plsql" }
-
 -- Directories scanned by the projects picker. Put a list in the untracked
 -- projects.local.lua file in the config directory, e.g. `return { "~/code" }`.
 local function project_dirs()
@@ -17,22 +15,15 @@ end
 return {
   {
     "vuki656/package-info.nvim",
-    requires = "MunifTanjim/nui.nvim",
-    ft = "json",
-    config = function()
-      require("package-info").setup({
-        hide_up_to_date = false,
-        colors = {
-          up_to_date = "#3C6048", -- Text color for up to date dependency virtual text
-          outdated = "#d19a66", -- Text color for outdated dependency virtual text
-        },
-      })
-    end,
+    dependencies = { "MunifTanjim/nui.nvim" },
+    event = "BufRead package.json",
+    opts = {
+      highlights = {
+        up_to_date = { fg = "#3C6048" },
+      },
+    },
   },
-  {
-    "tikhomirov/vim-glsl",
-  },
-  { "akinsho/git-conflict.nvim", version = "*", config = true },
+  { "akinsho/git-conflict.nvim", version = "*", event = "LazyFile", config = true },
   {
     "folke/snacks.nvim",
     opts = {

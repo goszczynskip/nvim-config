@@ -10,13 +10,6 @@ return {
     opts = {
       plugin_dir = plugin_dir,
     },
-    cmd = {
-      "OpenCodeAddFile",
-      "OpenCodeAddLine",
-      "OpenCodeContextToggle",
-      "OpenCodeStatus",
-      "OpenCodeTarget",
-    },
     keys = {
       {
         "<leader>of",
